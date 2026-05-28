@@ -1,27 +1,104 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-playfair);
+    --font-sans: var(--font-inter);
+  }
+  :root {
+    /* Sheffield-inspired light theme */
+    --background: #fdf6e3;
+    --foreground: #2c2c2c;
+    --card: #fffef8;
+    --card-foreground: #2c2c2c;
+    --popover: #fffef8;
+    --popover-foreground: #2c2c2c;
+    --primary: #4a4e54;
+    --primary-foreground: #ffffff;
+    --secondary: #efe6d5;
+    --secondary-foreground: #2c2c2c;
+    --muted: #ebe3d4;
+    --muted-foreground: #5c5c5c;
+    --accent: #e67e22;
+    --accent-foreground: #ffffff;
+    --destructive: #c0392b;
+    --destructive-foreground: #ffffff;
+    --border: #d8cfbf;
+    --input: #d8cfbf;
+    --ring: #e67e22;
+    --chart-1: #4a4e54;
+    --chart-2: #e67e22;
+    --chart-3: #2c2c2c;
+    --chart-4: #8b7355;
+    --chart-5: #a67c52;
+    --radius: 0.625rem;
+    --sidebar: #fffef8;
+    --sidebar-foreground: #2c2c2c;
+    --sidebar-primary: #4a4e54;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #efe6d5;
+    --sidebar-accent-foreground: #2c2c2c;
+    --sidebar-border: #d8cfbf;
+    --sidebar-ring: #e67e22;
+  }
+  .dark {
+    --background: #1f2023;
+    --foreground: #f4f1e8;
+    --card: #2a2b30;
+    --card-foreground: #f4f1e8;
+    --popover: #2a2b30;
+    --popover-foreground: #f4f1e8;
+    --primary: #c5c7cc;
+    --primary-foreground: #1f2023;
+    --secondary: #3a3c42;
+    --secondary-foreground: #f4f1e8;
+    --muted: #3a3c42;
+    --muted-foreground: #b8b8b8;
+    --accent: #e67e22;
+    --accent-foreground: #ffffff;
+    --destructive: #e74c3c;
+    --destructive-foreground: #ffffff;
+    --border: #ffffff1a;
+    --input: #ffffff22;
+    --ring: #e67e22;
+    --sidebar: #2a2b30;
+    --sidebar-foreground: #f4f1e8;
+    --sidebar-primary: #e67e22;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #3a3c42;
+    --sidebar-accent-foreground: #f4f1e8;
+    --sidebar-border: #ffffff1a;
+    --sidebar-ring: #e67e22;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-tight text-balance;
+  }
+}
+
+/* Visible keyboard focus for WCAG */
+:where(a, button, input, textarea, select, [role="button"]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
